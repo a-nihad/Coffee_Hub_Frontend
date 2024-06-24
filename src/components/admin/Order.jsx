@@ -12,7 +12,7 @@ function Order({ order, index }) {
   const { customer, products, orderStatus, totalPrice, createdAt, _id } = order;
 
   return (
-    <div className="bg-color_white grid grid-cols-[80px_1.5fr_1.5fr_1fr_1fr_1fr_1.2fr] rounded-md px-5 py-2 text-center shadow-sm">
+    <div className="grid grid-cols-[80px_1.5fr_1.5fr_1fr_1fr_1fr_1.2fr] rounded-md bg-color_white px-5 py-2 text-center shadow-sm">
       <h1 className="text-left"> {index + 1} </h1>
       <h1 className="text-left font-semibold capitalize"> {customer} </h1>
       <div className="text-left text-sm capitalize">
@@ -35,7 +35,10 @@ function Order({ order, index }) {
       <div className="flex justify-center gap-5">
         <Modal>
           <Modal.Open windowName="product">
-            <Button className="flex h-max items-center gap-2 rounded-md px-3 py-1">
+            <Button
+              disabled={orderStatus === "cancelled"}
+              className="flex h-max items-center gap-2 rounded-md px-3 py-1"
+            >
               <HiPencilSquare size={18} />
               Edit
             </Button>

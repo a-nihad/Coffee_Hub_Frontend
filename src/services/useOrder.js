@@ -8,6 +8,7 @@ import {
   setViewOrder,
 } from "../redux/reducers/orderSlice";
 import { AxiosPrivate } from "../api/axios";
+import { clearCart } from "../redux/reducers/cartSlice";
 
 export const useOrder = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ export const useOrder = () => {
 
       if (status === 201) {
         toast.success(data.status);
+        dispatch(clearCart());
         navigate("/");
         getOrders();
       }

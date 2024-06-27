@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://www.devnihad.tech/api";
+// const BASE_URL = "https://www.devnihad.tech/api";
+const BASE_URL = "http://127.0.0.1:8080/api";
 
 const Instance = axios.create({
   baseURL: BASE_URL,

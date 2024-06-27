@@ -9,20 +9,22 @@ function Cart() {
   const { cart } = useSelector((state) => state.cart);
 
   return (
-    <div className="relative m-auto w-8/12 rounded-xl px-10 py-10">
-      <header className="flex justify-between border-b border-color_primary pb-3 text-xl font-semibold">
+    <div className="relative m-auto w-11/12 rounded-xl bg-color_secondary_light px-5 py-10 sm:px-10 lg:px-20 xl:w-9/12">
+      <header className="flex justify-between border-b border-color_primary pb-1 font-semibold md:text-xl">
         <h1> Your Cart </h1>
-        <h1>{cart.length} items</h1>
+        <h1>{cart.length} Items</h1>
       </header>
 
       {cart.length > 0 ? (
         <div className="space-y-2 pt-5">
-          <div className="grid grid-cols-[1.5fr_1fr_2fr_1fr_1fr] gap-5 rounded-md bg-color_primary p-2 px-5 text-center text-color_light">
+          <div className="grid grid-cols-[3fr_1fr_1.3fr_1fr] items-center gap-5 rounded-md bg-color_primary p-2 px-5 text-center text-sm text-color_light md:grid-cols-[1.5fr_1fr_2fr_1fr_1fr] md:text-base">
             <h1 className="text-left"> Name </h1>
-            <h1> Category </h1>
+            <h1 className="hidden md:block"> Category </h1>
             <h1> Price </h1>
             <h1> </h1>
-            <h1> Total Price </h1>
+            <h1 className="flex justify-center gap-1">
+              Total <span className="hidden md:flex"> Price </span>
+            </h1>
           </div>
 
           {cart.map((item) => (
@@ -42,7 +44,7 @@ function Cart() {
           </div>
         </div>
       ) : (
-        <h1 className="p-20 text-center text-xl"> Your Cart is empty </h1>
+        <h1 className="p-20 text-center md:text-xl"> Your Cart is empty 😜 </h1>
       )}
     </div>
   );

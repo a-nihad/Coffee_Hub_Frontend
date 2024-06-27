@@ -4,10 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        color_light: "#F9F3E2",
+        color_light: "#FCF9F8",
+        color_primary_light: "#EDD6CD",
         color_primary: "#996651",
         color_primary_dark: "#723E28",
-        color_secondary_light: "#374151",
+        color_secondary_light: "#EEE7E3",
         color_secondary: "#1a1e18",
         color_danger_dark: "#991b1b",
         color_danger: "#b91c1c",

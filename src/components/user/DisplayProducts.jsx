@@ -28,34 +28,42 @@ function DisplayProducts() {
   }, [search]);
 
   return (
-    <div className="flex flex-wrap justify-center gap-10 p-10">
+    <div className="grid items-center justify-center gap-5 p-10 sm:grid-cols-2 md:gap-10 md:px-20 md:py-10 lg:grid-cols-3">
       {products &&
         products.map((product) => (
           <div
             key={product._id}
-            className="bg-color_primary_dark flex w-[280px] flex-col items-center rounded-xl p-5 pt-2 shadow-xl"
+            className="relative flex h-full max-w-[450px] flex-col items-center rounded-xl bg-color_white p-10 shadow-xl transition-all duration-300 hover:scale-105"
           >
-            <h1 className="w-full border-b p-1 text-center text-sm uppercase">
+            <span className="absolute right-0 top-5 rounded-l-xl bg-color_secondary_light px-5 py-2 text-center text-sm font-semibold uppercase text-color_primary_dark">
               {product.category}
-            </h1>
-            <h1 className="text-color_white mt-3 text-xl font-semibold capitalize">
-              {product.name}
-            </h1>
-            <h1 className="text-color_gray"> {product.description} </h1>
-            <h1 className="text-color_light text-2xl font-bold">
-              ₹{product.price}
-            </h1>
-            <div className="pt-4 text-sm">
+            </span>
+            <span className="aspect-square w-4/6 overflow-hidden rounded-3xl">
+              <img src={product.image.url} alt="" className="h-full w-full" />
+            </span>
+
+            <section className="flex flex-col items-center gap-2 text-center">
+              <h1 className="text-xl font-semibold capitalize text-color_secondary">
+                {product.name}
+              </h1>
+              <p className="text-sm font-thin text-color_gray md:font-normal">
+                {product.description}
+              </p>
+              <h1 className="pt-5 text-2xl font-extrabold text-color_primary_dark">
+                ₹{product.price}
+              </h1>
+
               <Button
+                variation="primary"
                 disabled={!isAuthenticated || product.availability < 1}
-                className="text-color_white rounded-lg px-5 py-2"
+                className="rounded-lg px-5 py-2 text-color_white"
                 onClick={() =>
                   dispatch(addToCart({ ...product, product: product._id }))
                 }
               >
-                {product.availability > 0 ? "ADD TO CART" : "OUT OF STOCK"}
+                {product.availability > 0 ? "Add to cart 👉" : "Out of stock"}
               </Button>
-            </div>
+            </section>
           </div>
         ))}
     </div>

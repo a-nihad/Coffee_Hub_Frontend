@@ -13,19 +13,23 @@ function Product({ product, index }) {
 
   return (
     <div
-      className={`bg-color_white grid grid-cols-[80px_1.5fr_1fr_1fr_1fr_1.2fr] items-center rounded-md px-5 py-2 text-center shadow-sm ${availability < 1 && "text-color_danger"}`}
+      className={`grid grid-cols-[30px_3fr_1.3fr_1fr] items-center rounded-md bg-color_white px-5 py-2 text-center shadow-sm md:grid-cols-[30px_1.5fr_1fr_1fr_1fr_1.2fr] ${availability < 1 && "text-color_danger"}`}
     >
-      <h1 className="text-left"> {index + 1} </h1>
-      <h1 className="text-left capitalize"> {name} </h1>
+      <h1 className="flex aspect-square items-center justify-center rounded-full bg-color_secondary_light text-left">
+        {index + 1}
+      </h1>
+      <div className="flex flex-col pl-5 text-left capitalize">
+        <h1> {name} </h1>
+        <h1 className="text-sm md:hidden"> {category} </h1>
+      </div>
+      <h1 className="hidden md:block"> {category} </h1>
       <h1> {price} </h1>
-      <h1> {category} </h1>
       <h1> {availability > 0 ? availability : "SOLD OUT"} </h1>
-      <div className="flex justify-center gap-5">
+      <div className="hidden justify-center gap-5 md:flex">
         <Modal>
           <Modal.Open windowName="product">
-            <Button className="flex items-center gap-2 rounded-md px-3 py-1">
+            <Button variation="icon" className="h-max">
               <HiPencilSquare size={18} />
-              Edit
             </Button>
           </Modal.Open>
           <Modal.Window name="product">
@@ -33,12 +37,8 @@ function Product({ product, index }) {
           </Modal.Window>
 
           <Modal.Open windowName="product_delete">
-            <Button
-              variation="secondary"
-              className="flex items-center gap-1 rounded-md px-2 py-1"
-            >
+            <Button variation="icon" className="h-max">
               <HiTrash size={18} />
-              Delete
             </Button>
           </Modal.Open>
           <Modal.Window name="product_delete">

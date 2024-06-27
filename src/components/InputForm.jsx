@@ -9,7 +9,7 @@ function InputForm({ label, name, type, textarea, ...rest }) {
   return (
     <div className="relative flex flex-col items-start">
       <label
-        className="text-color_secondary_light pl-1 text-sm after:text-red-500 after:content-['*']"
+        className="pl-1 text-sm text-color_primary after:text-red-500 after:content-['*']"
         htmlFor={name}
       >
         {label}
@@ -21,13 +21,13 @@ function InputForm({ label, name, type, textarea, ...rest }) {
         name={name}
         type={inputType}
         {...rest}
-        className={`outline-color_primary w-full rounded-md border px-3 py-2 ${textarea ? "h-24 md:h-32" : ""} `}
+        className={`w-full rounded-md border px-3 py-2 outline-color_primary ${textarea ? "h-24 md:h-32" : ""} `}
       />
 
       <button
         type="button"
         onClick={() => setShow(!show)}
-        className="text-color_secondary_light absolute right-5 top-8"
+        className="absolute right-5 top-8 text-color_primary"
       >
         {type === "password" ? (
           show ? (

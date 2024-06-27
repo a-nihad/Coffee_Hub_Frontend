@@ -25,15 +25,15 @@ function OrderManagement() {
   }, [search]);
 
   return (
-    <section className="space-y-2 p-10 px-20">
-      <header className="bg-color_primary text-color_white grid grid-cols-[80px_1.5fr_1.5fr_1fr_1fr_1fr_1.2fr] rounded-md px-5 py-2 text-center">
+    <section className="relative m-auto w-11/12 rounded-xl bg-color_secondary_light px-5 pb-10 sm:px-10 lg:px-20 xl:w-9/12">
+      <h1 className="py-5 text-center text-xl font-semibold"> ORDERS </h1>
+      <header className="mb-2 grid grid-cols-[30px_3fr_1.5fr_1.5fr] rounded-md bg-color_primary px-5 py-2 text-center text-color_white md:grid-cols-[30px_3fr_1.5fr_1.5fr_1.5fr] lg:grid-cols-[40px_1.5fr_1fr_1fr_1fr_1fr]">
         <h1 className="text-left"> No </h1>
-        <h1 className="text-left"> Customer name </h1>
-        <h1 className="text-left"> Product - Quantity </h1>
-        <h1> Order status </h1>
-        <h1> Total price </h1>
-        <h1> Order date </h1>
-        <h1></h1>
+        <h1 className="pl-2 text-left md:pl-5"> Items </h1>
+        <h1> Price </h1>
+        <h1> Status </h1>
+        <h1 className="hidden lg:block"> Date </h1>
+        <h1 className="hidden md:block"></h1>
       </header>
 
       <body className="space-y-2">

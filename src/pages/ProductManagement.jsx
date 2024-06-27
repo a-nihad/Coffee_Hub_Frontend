@@ -28,29 +28,29 @@ function ProductManagement() {
   }, [search]);
 
   return (
-    <section className="space-y-2 p-10 px-20">
-      <header className="flex items-center justify-between px-5 text-2xl font-semibold">
+    <section className="relative m-auto w-11/12 space-y-2 rounded-xl bg-color_secondary_light px-5 pb-10 sm:px-10 lg:px-20 xl:w-9/12">
+      <div className="flex items-center justify-between px-5 pb-2 pt-10 font-semibold md:text-2xl">
         <h1> List of Products </h1>
         <Modal>
           <Modal.Open windowName="product">
             <Button
               variation="special"
-              className="bg-color_secondary w-60 rounded-md border py-2 text-base"
+              className="w-32 rounded-md border bg-color_secondary py-2 text-sm md:w-60"
             >
-              Product
+              New Product
             </Button>
           </Modal.Open>
           <Modal.Window name="product">{<ProductForm />}</Modal.Window>
         </Modal>
-      </header>
+      </div>
 
-      <header className="bg-color_primary text-color_white grid grid-cols-[80px_1.5fr_1fr_1fr_1fr_1.2fr] rounded-md px-5 py-2 text-center">
+      <header className="grid grid-cols-[30px_3fr_1.3fr_1fr] rounded-md bg-color_primary px-5 py-2 text-center text-color_white md:grid-cols-[30px_1.5fr_1fr_1fr_1fr_1.2fr]">
         <h1 className="text-left"> No </h1>
-        <h1 className="text-left"> Name </h1>
+        <h1 className="pl-5 text-left"> Products </h1>
+        <h1 className="hidden md:block"> Category </h1>
         <h1> Price </h1>
-        <h1> Category </h1>
-        <h1> Availability Status </h1>
-        <h1></h1>
+        <h1> Availability </h1>
+        <h1 className="hidden md:block"></h1>
       </header>
 
       <body className="space-y-2">
